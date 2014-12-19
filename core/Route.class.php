@@ -8,8 +8,8 @@
     private $controller;
     private $callmethod;
 
-    private $has_before;
-    private $has_after;
+    private $has_before = false;
+    private $has_after = false;
     private $before;
     private $after;
 
@@ -21,8 +21,8 @@
      * @param string $controller - The controller action to call
      */
     public function __construct($verb, $path, $controller){
-      $this->verb = $verb;
-      $this->path = $path;
+      $this->verb = strtolower($verb);
+      $this->path = trim($path);
 
       $controller_info = explode("#", $controller);
       $this->controller = $controller_info[0];
@@ -47,6 +47,33 @@
     public function append_after($after){
       $this->has_after = true;
       $this->after = $after;
+    }
+
+
+    /**
+     * Call the function that has been defined before the model hook
+     * this will do nothing, if the function is not set.
+     */
+    public function call_before(){
+      if($this->has_before) $this->before();
+    }
+
+
+    /**
+     * Call the function that has been defined after the model hook
+     * this will do nothing, if the function is not set.
+     */
+    public function call_after(){
+      if($this->has_after) $this->after();
+    }
+
+
+    /**
+     * Call the actual controller action if the route was matched and
+     * we want to do stuff
+     */
+    public function call_controller(){
+      echo 'test';
     }
 
   }

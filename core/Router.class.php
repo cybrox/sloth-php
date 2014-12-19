@@ -9,16 +9,6 @@
 
 
     /**
-     * Class constructor, this will resolve the given path
-     * @param array $server - Server array
-     */
-    public function __constuct($server){
-      self::$verb = $server['REQUEST_METHOD'];
-      self::$path = str_replace(parent::$base, "", $server['REQUEST_URI']);
-    }
-
-
-    /**
      * Create a new route for a given verb and path that will create 
      * a hook to loop through in the given controller object
      * @param string $verb - Matching http request verb
@@ -71,11 +61,33 @@
      * @param string $path - http request path
      */
     public static function match($verb, $path){
-      if(empty($verb)) $verb = $this->verb;
-      if(empty($path)) $path = $this->path;
+      if(empty($verb)) $verb = self::$verb;
+      if(empty($path)) $path = self::$path;
+
+      $verb = strtolower($verb);
+      $path = trim($path);
 
       foreach (self::$routes as $route)
         if($route->verb == $verb && $route->path = $path) return $route;
+    }
+
+
+    /**
+     * This method will be called from the index to actually process the current route
+     * @param array $server - Server array
+     */
+    public static function route_process($server){
+      self::$verb = strtolower($server['REQUEST_METHOD']);
+      self::$path = str_replace(parent::$base, "", $server['REQUEST_URI']);
+
+      $route = self::match(self::$verb, self::$path);
+
+      if(!$route) Error::throw404();
+      else {
+        $route->call_before();
+        $route->call_controller();
+        $route->call_after();
+      }
     }
 
   }
