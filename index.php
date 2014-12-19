@@ -14,7 +14,17 @@
    * !!Need to replace this with something better later on
    */
   function __autoload($class) {
-    require './core/'.$class.'.class.php';
+    $dirs = array(
+      'core',
+      'app/controllers',
+      'app/models',
+      'app/views'
+    );
+    
+    foreach ($dirs as $dir) {
+      $path = $dir.'/'.$class.'.class.php';
+      if(file_exists($path)) include($path);
+    }
   }
 
 
