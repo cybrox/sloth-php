@@ -2,15 +2,7 @@
 
   class BaseClass {
 
-    protected $base;
-
-    /**
-     * Core constructor, will initialize important stuff
-     */
-    public function __construct(){
-      // Actually load config file here
-      $this->base = "imgsave/";
-    }
+    protected static $base = "/_websync/eu.cybrox.dev/sloth-php";
 
   }
 
