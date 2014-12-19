@@ -73,7 +73,8 @@
      * we want to do stuff
      */
     public function call_controller(){
-      echo 'test';
+      Controller::get_controller($this->controller);
+      Controller::invoke_method($this->callmethod);
     }
 
   }
