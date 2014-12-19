@@ -15,14 +15,14 @@
    */
   function __autoload($class) {
     $dirs = array(
-      'core',
-      'app/controllers',
-      'app/models',
-      'app/views'
+      array('core', '.class'),
+      array('app/controllers', ''),
+      array('app/models', ''),
+      array('app/views', '')
     );
-    
+
     foreach ($dirs as $dir) {
-      $path = $dir.'/'.$class.'.class.php';
+      $path = $dir[0].'/'.$class.$dir[1].'.php';
       if(file_exists($path)) include($path);
     }
   }
@@ -36,7 +36,7 @@
   /**
    * Just space for testing for now
    */
-  Router::route("GET", "/", "index#show");
+  Router::route("GET", "/", "home#index");
   Router::route_before("GET", "/", function(){ echo 'a'; });
   Router::route_after("GET", "/", function(){ echo 'b'; });
 
