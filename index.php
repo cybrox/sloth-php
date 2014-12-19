@@ -18,13 +18,18 @@
   }
 
 
+  // echo '<pre>';
+  // var_dump($_SERVER);
+  // echo '</pre>';
+
 
   /**
    * Just space for testing for now
    */
   Router::route("GET", "/", "index#show");
   Router::route_before("GET", "/", function(){ echo 'a'; });
+  Router::route_after("GET", "/", function(){ echo 'b'; });
 
-  Router::route_process();
+  Router::route_process($_SERVER);
 
 ?>
