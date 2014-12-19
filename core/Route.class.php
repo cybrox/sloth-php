@@ -55,7 +55,7 @@
      * this will do nothing, if the function is not set.
      */
     public function call_before(){
-      if($this->has_before) $this->before();
+      if($this->has_before) $this->before->__invoke();
     }
 
 
@@ -64,7 +64,7 @@
      * this will do nothing, if the function is not set.
      */
     public function call_after(){
-      if($this->has_after) $this->after();
+      if($this->has_after) $this->after->__invoke();
     }
 
 
