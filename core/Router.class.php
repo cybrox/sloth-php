@@ -4,8 +4,18 @@
 
     private static $verb;
     private static $path;
+    private static $base;
 
     private static $routes = array();
+
+
+    /**
+     * Set the base of the router path.
+     * @param string $base - The routing base
+     */
+    public static function set_base($base){
+      self::$base = trim($base);
+    }
 
 
     /**
@@ -78,7 +88,7 @@
      */
     public static function route_process($server){
       self::$verb = strtolower($server['REQUEST_METHOD']);
-      self::$path = str_replace(parent::$base, "", $server['REQUEST_URI']);
+      self::$path = str_replace(self::$base, "", $server['REQUEST_URI']);
 
       $route = self::match(self::$verb, self::$path);
 
