@@ -28,6 +28,11 @@
   }
 
 
+  /**
+   * Include needed files
+   */
+  require_once('./router.php');
+
   // echo '<pre>';
   // var_dump($_SERVER);
   // echo '</pre>';
@@ -36,9 +41,6 @@
   /**
    * Just space for testing for now
    */
-  Router::route("GET", "/", "home#index");
-  Router::route_before("GET", "/", function(){ echo 'a'; });
-  Router::route_after("GET", "/", function(){ echo 'b'; });
 
   Router::route_process($_SERVER);
 
