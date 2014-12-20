@@ -55,7 +55,10 @@
      * this will do nothing, if the function is not set.
      */
     public function call_before(){
-      if($this->has_before) $this->before->__invoke();
+      if($this->has_before){
+        if(is_callable($this->before)) $this->before->__invoke();
+        else $this->call_controller_method($this->before);
+      }
     }
 
 
@@ -64,7 +67,10 @@
      * this will do nothing, if the function is not set.
      */
     public function call_after(){
-      if($this->has_after) $this->after->__invoke();
+      if($this->has_after){
+        if(is_callable($this->after)) $this->after->__invoke();
+        else $this->call_controller_method($this->after);
+      }
     }
 
 
@@ -75,6 +81,19 @@
     public function call_controller(){
       Controller::get_controller($this->controller);
       Controller::invoke_method($this->callmethod);
+    }
+
+
+    /**
+     * Call a method from a controller with a given controller#method
+     * constellation string.
+     * @param string $method - The given address string
+     */
+    public function call_controller_method($method){
+      $method_meta = explode("#", $method);
+
+      Controller::get_controller($method_meta[0]);
+      Controller::invoke_method($method_meta[1]);
     }
 
   }
