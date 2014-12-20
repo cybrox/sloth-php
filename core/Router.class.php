@@ -1,6 +1,6 @@
 <?php
 
-  class Router extends BaseClass {
+  class Router extends Base {
 
     private static $verb;
     private static $path;

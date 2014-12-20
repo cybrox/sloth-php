@@ -1,6 +1,6 @@
 <?php
 
-  class Controller extends BaseClass {
+  class Controller extends Base {
 
     private static $new_controller;
 

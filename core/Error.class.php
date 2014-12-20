@@ -1,6 +1,6 @@
 <?php
 
-  class Error extends BaseClass {
+  class Error extends Base {
 
     /**
      * This will eventually render a real 404 resposne

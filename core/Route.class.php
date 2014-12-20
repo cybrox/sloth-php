@@ -1,6 +1,6 @@
 <?php
 
-  class Route extends BaseClass {
+  class Route extends Base {
 
     public $verb;
     public $path;
