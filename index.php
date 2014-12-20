@@ -43,7 +43,12 @@
    * Just space for testing for now
    */
 
-  Base::set_config($__sphpconfig);
-  Router::route_process($_SERVER);
+  try {
 
+    Base::set_config($__sphpconfig);
+    Router::route_process($_SERVER);
+
+  } catch(LazySloth $s) {
+    Error::shutdown($s);
+  }
 ?>

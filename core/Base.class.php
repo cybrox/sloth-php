@@ -20,7 +20,7 @@
      */
     public static function config($key){
       if(!array_key_exists($key, self::$config))
-        throw new Exception("Tried to access unset config value from Base::config");
+        throw new LazySloth("Tried to access unset config value from Base::config");
      
       return self::$config[$key]; 
     }
