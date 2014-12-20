@@ -17,8 +17,7 @@
     $dirs = array(
       array('core', '.class'),
       array('app/controllers', ''),
-      array('app/models', ''),
-      array('app/views', '')
+      array('app/models', '')
     );
 
     foreach ($dirs as $dir) {
@@ -28,15 +27,13 @@
   }
 
 
-  /**
-   * Include needed files
-   */
+  /* Include needed files */
   require_once('./app/router.php');
   require_once('./app/config.php');
 
-  // echo '<pre>';
-  // var_dump($_SERVER);
-  // echo '</pre>';
+  /* Create function alias for simple templating */
+  function __($name){ echo Registry::get($name); }
+
 
 
   /**
