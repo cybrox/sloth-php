@@ -3,7 +3,7 @@
   class Error extends Base {
 
     /**
-     * This will eventually render a real 404 resposne
+     * Render the error404 view
      */
     public static function throw404(){
       View::render('error404');
