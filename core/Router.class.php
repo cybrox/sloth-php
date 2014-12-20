@@ -78,7 +78,7 @@
       $path = trim($path);
 
       foreach (self::$routes as $route)
-        if($route->verb == $verb && $route->path = $path) return $route;
+        if($route->verb == $verb && $route->path == $path) return $route;
     }
 
 
