@@ -5,6 +5,7 @@
     private static $verb;
     private static $path;
     private static $base;
+    private static $rtpe;
 
     private static $routes = array();
 
@@ -89,6 +90,13 @@
     public static function route_process($server){
       self::$verb = strtolower($server['REQUEST_METHOD']);
       self::$path = str_replace(self::$base, "", $server['REQUEST_URI']);
+      self::$rtpe = (substr_count($server['REQUEST_URI'], ".json") == 1) ? 'json' : 'html';
+
+      // Remove query strings from requested path
+      $path_meta  = preg_split("/(\?|\&|\.)/i", self::$path);
+      self::$path = $path_meta[0];
+
+      BaseController::$request_type = self::$rtpe;
 
       $route = self::match(self::$verb, self::$path);
 
