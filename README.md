@@ -11,3 +11,29 @@ So instead of working into something new, I decided to just write something simp
 
 ### Documentation and stuff
 *coming soon*
+
+### Project goals
+- [ ] Restful routing
+ -  [x] Allow user to set routes in the application
+ -  [x] Use lambda-functions for before/after route hooks
+ -  [ ] Pass controller#method strings to defined lambdas
+- [ ] Controller actions linked to handle a route
+ -  [x] Link a specific route to a controller action
+ -  [ ] Determine action based on requested format (html/json)
+- [ ] Rendering views
+ -  [ ] Render views based on the method called in the controller
+ -  [ ] Default view scaffolding for json replies
+ -  [ ] *Preload* storage for temp value storage between controller and view
+ -  [ ] *Controller* storage for accessing loaded model information in a view
+-  [ ] Models
+ -  [ ] Database connectors and handlers
+ -  [ ] Query builder
+ -  [ ] App model system to access from controllers
+ -  [ ] Simple relations between models?
+-  [ ] Error handling
+ -  [x] Catch errors and route to a custom error handling
+ -  [ ] Display nice error response
+ -  [ ] Proper default error routes
+- [ ] Session handling
+ - [ ] Simple global session handling
+- [ ] More?
