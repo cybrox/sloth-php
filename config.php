@@ -8,7 +8,7 @@
    * application via Base::config('keyname').
    */
 
-  $config = array(
+  $__sphpconfig = array(
 
     "framework" => "sloth-php"
 

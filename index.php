@@ -43,6 +43,7 @@
    * Just space for testing for now
    */
 
+  Base::set_config($__sphpconfig);
   Router::route_process($_SERVER);
 
 ?>
