@@ -31,8 +31,8 @@
   /**
    * Include needed files
    */
-  require_once('./router.php');
-  require_once('./config.php');
+  require_once('./app/router.php');
+  require_once('./app/config.php');
 
   // echo '<pre>';
   // var_dump($_SERVER);
