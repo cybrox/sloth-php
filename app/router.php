@@ -22,7 +22,7 @@
   Router::set_base("_websync/eu.cybrox.dev/sloth-php/");
 
   Router::route("GET", "/", "home#index");
-  Router::route_before("GET", "/", function(){ echo 'a'; });
+  Router::route_before("GET", "/", "home#before_index");
   Router::route_after("GET", "/", function(){ echo 'b'; });
 
 ?>

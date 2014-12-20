@@ -8,6 +8,13 @@
       View::render('home');
     }
 
+    public function before_index(){
+
+      if(!Session::get('isUser'))
+        Session::set('isUser', true);
+
+    }
+
   }
 
 ?>
