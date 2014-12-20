@@ -20,11 +20,10 @@ So instead of working into something new, I decided to just write something simp
 - [x] Controller actions linked to handle a route
  -  [x] Link a specific route to a controller action
  -  [x] Determine action based on requested format (html/json)
-- [ ] Rendering views
+- [x] Rendering views
  -  [x] Render views based on the method called in the controller
  -  [x] Default view scaffolding for json replies
  -  [x] *Preload* storage for temp value storage between controller and view
- -  [ ] *Controller* storage for accessing loaded model information in a view
 -  [ ] Models
  -  [ ] Database connectors and handlers
  -  [ ] Query builder
@@ -33,7 +32,7 @@ So instead of working into something new, I decided to just write something simp
 -  [ ] Error handling
  -  [x] Catch errors and route to a custom error handling
  -  [ ] Display nice error response
- -  [ ] Proper default error routes
+ -  [x] Proper default error routes
 - [x] Session handling
  - [x] Simple global session handling
 - [ ] More?
