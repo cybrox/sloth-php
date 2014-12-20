@@ -21,9 +21,9 @@ So instead of working into something new, I decided to just write something simp
  -  [x] Link a specific route to a controller action
  -  [ ] Determine action based on requested format (html/json)
 - [ ] Rendering views
- -  [ ] Render views based on the method called in the controller
- -  [ ] Default view scaffolding for json replies
- -  [ ] *Preload* storage for temp value storage between controller and view
+ -  [x] Render views based on the method called in the controller
+ -  [x] Default view scaffolding for json replies
+ -  [x] *Preload* storage for temp value storage between controller and view
  -  [ ] *Controller* storage for accessing loaded model information in a view
 -  [ ] Models
  -  [ ] Database connectors and handlers
@@ -34,6 +34,6 @@ So instead of working into something new, I decided to just write something simp
  -  [x] Catch errors and route to a custom error handling
  -  [ ] Display nice error response
  -  [ ] Proper default error routes
-- [ ] Session handling
- - [ ] Simple global session handling
+- [x] Session handling
+ - [x] Simple global session handling
 - [ ] More?
