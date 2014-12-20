@@ -13,13 +13,13 @@ So instead of working into something new, I decided to just write something simp
 *coming soon*
 
 ### Project goals
-- [ ] Restful routing
+- [x] Restful routing
  -  [x] Allow user to set routes in the application
  -  [x] Use lambda-functions for before/after route hooks
- -  [ ] Pass controller#method strings to defined lambdas
-- [ ] Controller actions linked to handle a route
+ -  [x] Pass controller#method strings to defined lambdas
+- [x] Controller actions linked to handle a route
  -  [x] Link a specific route to a controller action
- -  [ ] Determine action based on requested format (html/json)
+ -  [x] Determine action based on requested format (html/json)
 - [ ] Rendering views
  -  [x] Render views based on the method called in the controller
  -  [x] Default view scaffolding for json replies
