@@ -31,17 +31,16 @@
   require_once('./app/router.php');
   require_once('./app/config.php');
 
+
   /* Create function alias for simple templating */
   function __($name){ echo Registry::get($name); }
 
+
   /* Start a new session */
   session_start();
-  
 
-  /**
-   * Just space for testing for now
-   */
 
+  /* Actually render page or catch errors */
   try {
 
     Base::set_config($__sphpconfig);
