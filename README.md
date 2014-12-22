@@ -10,7 +10,10 @@ I've been working with php a lot over the past few years and I've often ran into
 So instead of working into something new, I decided to just write something simple that I can personally use for small projects and document it to make it available for everybody.
 
 ### Documentation and stuff
-*coming soon*
+- [Routing](https://github.com/cybrox/sloth-php/blob/master/docs/routing.md)
+    
+
+*more coming soon*
 
 ### Project goals
 - [x] Restful routing
