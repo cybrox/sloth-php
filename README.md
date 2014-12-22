@@ -14,7 +14,7 @@ So instead of working into something new, I decided to just write something simp
 - [Configuring `app/config.php`](https://github.com/cybrox/sloth-php/blob/master/docs/configuring.md)
 - [Matching Routes `app/router.php`](https://github.com/cybrox/sloth-php/blob/master/docs/routing.md)
 - [Building Controllers `app/controllers`](https://github.com/cybrox/sloth-php/blob/master/docs/controllers.md)
-- [Rendering Views `app/views`](#) *soon*
+- [Rendering Views `app/views`](https://github.com/cybrox/sloth-php/blob/master/docs/views.md) *soon*
 - [Creating Models `app/models`](#) *soon*
 - [Database Interactions](#) *soon*
 
