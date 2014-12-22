@@ -2,7 +2,7 @@
 
   class Base {
 
-    private static $config;
+    private static $config = array();
 
 
     /**
