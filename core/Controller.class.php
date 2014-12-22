@@ -9,7 +9,7 @@
      * Check if the given controller exists and return it if possible
      */
     public static function get_controller($controller){
-      $controller = ucfirst($controller);
+      $controller = ucfirst($controller).'Controller';
       self::$new_controller = new $controller();
     }
 
