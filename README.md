@@ -12,7 +12,7 @@ So instead of working into something new, I decided to just write something simp
 ### Documentation and stuff
 - [Configuring `app/config.php`](https://github.com/cybrox/sloth-php/blob/master/docs/configuring.md)
 - [Matching Routes `app/router.php`](https://github.com/cybrox/sloth-php/blob/master/docs/routing.md)
-- [Building Controllers `app/controllers`](#) *soon*
+- [Building Controllers `app/controllers`](https://github.com/cybrox/sloth-php/blob/master/docs/controllers.md) *soon*
 - [Rendering Views `app/controllers`](#) *soon*
 - [Creating Models `app/models`](#) *soon*
 - [Database Interactions](#) *soon*
