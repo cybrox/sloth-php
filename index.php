@@ -14,14 +14,14 @@
   require_once('./core/URI.class.php');
   require_once('./core/Autoloader.class.php');
 
+
   /* Invoke base boot to get data we need */
   Base::boot();
+
 
   /* Register the autloader and load out files */
   Autoloader::register();
   Autoloader::load_app();
-
-
 
 
   /* Create function alias for simple templating */
@@ -30,9 +30,7 @@
 
   /* Actually render page or catch errors */
   try {
-
     Router::route_process($_SERVER);
-
   } catch(LazySloth $s) {
     Error::shutdown($s);
   }
