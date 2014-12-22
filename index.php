@@ -19,9 +19,10 @@
   Base::boot();
 
 
-  /* Register the autloader and load out files */
+  /* Register the autloader and load our files */
   Autoloader::register();
   Autoloader::load_app();
+  Autoloader::load_dbs();
 
 
   /* Create function alias for simple templating */

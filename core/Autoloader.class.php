@@ -75,6 +75,15 @@
       Base::set_config($__sphpconfig);
     }
 
+
+    /**
+     * Load our database connections
+     */
+    public static function load_dbs(){
+      $db = Base::config('database');
+      if($db['use_db']) Database::connect($db);
+    }
+
   }
 
 ?>
