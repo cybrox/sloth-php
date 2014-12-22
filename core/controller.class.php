@@ -9,6 +9,7 @@
      * Check if the given controller exists and return it if possible
      */
     public static function get_controller($controller){
+      require_once URI::$relative.'app/controllers/'.$controller.'_controller.php';
       $controller = ucfirst($controller).'Controller';
       self::$new_controller = new $controller();
     }

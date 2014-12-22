@@ -54,12 +54,11 @@
     private static function load($class){
       $dirs = array(
         array('core', '.class'),
-        array('app/controllers', ''),
         array('app/models', '')
       );
 
       foreach ($dirs as $dir) {
-        $path = $dir[0].'/'.$class.$dir[1].'.php';
+        $path = $dir[0].'/'.strtolower($class).$dir[1].'.php';
         if(file_exists($path)) include($path);
       }
     }

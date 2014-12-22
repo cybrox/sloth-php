@@ -23,6 +23,6 @@
 
 
 ## File naming conventions
-- Controllers: `app/controllers/` + `NameController.php`
+- Controllers: `app/controllers/` + `name_controller.php`
 - Models: `app/models/` + `name.php`
 - Views: `app/views/` + `name.php`
