@@ -1,5 +1,5 @@
 ## Concepts of restful routing
-sloth-php include a full restful routing that allow you to trigger different actions based on the http request url and request type it is accessed. There are two essential parameters for routing:  
+sloth-php includes a full restful routing concept that allow you to trigger different actions based on the http request url and request type it is accessed. There are two essential parameters for routing:  
 - The http request type (*verb*)
 - The http request url
 
@@ -9,7 +9,7 @@ sloth-php assumes that all requests use `/index.php` as entry point, so you will
 
 
 ## Setting up your router
-The first thing you want to do when creating an application using sloth-php is setting up your router, so that incoming reuqests are handled by the framework and you can get some actual output.  
+The first thing you want to do when creating an application using sloth-php is setting up your router, so that incoming requests are handled by the framework and you can get some actual output.  
 All changes noted here should be done in your `app/router.php` file.  
 If you're running a project with sloth-php in a subdirectory of your domain, you need to setup the router base in order for it to match url's correctly.
 
