@@ -10,7 +10,23 @@
 
   $__sphpconfig = array(
 
-    "framework" => "sloth-php"
+    'framework' => 'sloth-php',
+
+    'database' => array(
+      'use_db' => true,
+      'driver' => 'mysql',
+      'hostname' => 'localhost',
+      'port' => 3306,
+      'username' => 'root',
+      'password' => '',
+      'database' => '',
+      'charset' => 'utf8',
+      'prefix' => ''
+    ),
+
+
+    /* Insert custom global values here */
+    /* 'cake' => 'delicious', */
 
   );
 
