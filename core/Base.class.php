@@ -25,6 +25,24 @@
       return self::$config[$key]; 
     }
 
+
+    /**
+     * The boot function will be called once from the index to
+     * get all the initial stuff done.
+     */
+    public static function boot(){
+      session_start();
+
+      /* Check PHP version */
+      if(version_compare(PHP_VERSION, '5.3') < 0) {
+        echo "sloth-php needs PHP 5.3 or higher, you're running" . PHP_VERSION;
+        exit;
+      }
+
+      /* URI class setup */
+      // more here
+    }
+
   }
 
 ?>

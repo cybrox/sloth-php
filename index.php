@@ -13,6 +13,8 @@
   require_once('./core/Base.class.php');
   require_once('./core/Autoloader.class.php');
 
+  /* Invoke base boot to get data we need */
+  Base::boot();
 
   /* Register the autloader and load out files */
   Autoloader::register();
@@ -25,16 +27,6 @@
 
   /* Create function alias for simple templating */
   function __($name){ echo Registry::get($name); }
-
-
-  /* Start a new session */
-  session_start();
-
-  /* Check PHP version */
-  if(version_compare(PHP_VERSION, '5.3') < 0) {
-    echo "sloth-php needs PHP 5.3 or higher, you're running" . PHP_VERSION;
-    exit;
-  }
 
 
   /* Actually render page or catch errors */
