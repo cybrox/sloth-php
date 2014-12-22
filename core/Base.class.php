@@ -40,7 +40,7 @@
       }
 
       /* URI class setup */
-      // more here
+      URI::setup_uri();
     }
 
   }

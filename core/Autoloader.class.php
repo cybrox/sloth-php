@@ -64,6 +64,17 @@
       }
     }
 
+
+    /**
+     * Load the app config and router
+     */
+    public static function load_app(){
+      include URI::$relative.'app/router.php';
+      include URI::$relative.'app/config.php';
+
+      Base::set_config($__sphpconfig);
+    }
+
   }
 
 ?>

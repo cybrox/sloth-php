@@ -11,6 +11,7 @@
 
   /* Require needed fiels */
   require_once('./core/Base.class.php');
+  require_once('./core/URI.class.php');
   require_once('./core/Autoloader.class.php');
 
   /* Invoke base boot to get data we need */
@@ -18,11 +19,9 @@
 
   /* Register the autloader and load out files */
   Autoloader::register();
+  Autoloader::load_app();
 
 
-  /* Include needed files */
-  require_once('./app/router.php');
-  require_once('./app/config.php');
 
 
   /* Create function alias for simple templating */
@@ -32,7 +31,6 @@
   /* Actually render page or catch errors */
   try {
 
-    Base::set_config($__sphpconfig);
     Router::route_process($_SERVER);
 
   } catch(LazySloth $s) {
