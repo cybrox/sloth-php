@@ -9,22 +9,13 @@
    */
 
 
-  /**
-   * Class autoloader for core resources
-   * !!Need to replace this with something better later on
-   */
-  function __autoload($class) {
-    $dirs = array(
-      array('core', '.class'),
-      array('app/controllers', ''),
-      array('app/models', '')
-    );
+  /* Require needed fiels */
+  require_once('./core/Base.class.php');
+  require_once('./core/Autoloader.class.php');
 
-    foreach ($dirs as $dir) {
-      $path = $dir[0].'/'.$class.$dir[1].'.php';
-      if(file_exists($path)) include($path);
-    }
-  }
+
+  /* Register the autloader and load out files */
+  Autoloader::register();
 
 
   /* Include needed files */
