@@ -31,13 +31,13 @@ So instead of working into something new, I decided to just write something simp
  -  [x] Render views based on the method called in the controller
  -  [x] Default view scaffolding for json replies
  -  [x] *Preload* storage for temp value storage between controller and view
--  [ ] Models
- -  [ ] Database connectors and handlers
- -  [ ] Query builder
- -  [ ] App model system to access from controllers
+-  [x] Models
+ -  [x] Database connectors and handlers
+ -  [x] Query builder
+ -  [x] App model system to access from controllers
 -  [ ] Error handling
  -  [x] Catch errors and route to a custom error handling
  -  [x] Proper default error routes
 - [x] Session handling
  - [x] Simple global session handling
-- [ ] More?
+- [ ] Full documentation of these few concepts
