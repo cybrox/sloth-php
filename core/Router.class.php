@@ -2,9 +2,9 @@
 
   class Router extends Base {
 
+    private static $base = '/';
     private static $verb;
     private static $path;
-    private static $base;
     private static $rtpe;
 
     private static $routes = array();
@@ -15,7 +15,7 @@
      * @param string $base - The routing base
      */
     public static function set_base($base){
-      self::$base = trim($base);
+      self::$base = trim(trim($base), " \\/");
     }
 
 
@@ -76,7 +76,7 @@
       if(empty($path)) $path = self::$path;
 
       $verb = strtolower($verb);
-      $path = trim($path);
+      $path = trim(trim($path), " \\/");
 
       foreach (self::$routes as $route)
         if($route->verb == $verb && $route->path == $path) return $route;

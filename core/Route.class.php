@@ -22,7 +22,7 @@
      */
     public function __construct($verb, $path, $controller){
       $this->verb = strtolower($verb);
-      $this->path = trim($path);
+      $this->path = trim(trim($path), " \\/");
 
       $controller_info = explode("#", $controller);
       $this->controller = $controller_info[0];
