@@ -20,7 +20,7 @@
      * @param string $name - Name of the property
      */
     public static function get($name){
-      if(!array_key_exists($name, self::$stack)) return "variable.{$name}";
+      if(!array_key_exists($name, self::$stack)) return " [variable.{$name}] ";
       return self::$stack[$name];
     }
 
