@@ -10,9 +10,10 @@ I've been working with php a lot over the past few years and I've often ran into
 So instead of working into something new, I decided to just write something simple that I can personally use for small projects and document it to make it available for everybody.
 
 ### Documentation and stuff
+- [Structure and naming conventions](https://github.com/cybrox/sloth-php/blob/master/docs/conventions.md)
 - [Configuring `app/config.php`](https://github.com/cybrox/sloth-php/blob/master/docs/configuring.md)
 - [Matching Routes `app/router.php`](https://github.com/cybrox/sloth-php/blob/master/docs/routing.md)
-- [Building Controllers `app/controllers`](https://github.com/cybrox/sloth-php/blob/master/docs/controllers.md) *soon*
+- [Building Controllers `app/controllers`](https://github.com/cybrox/sloth-php/blob/master/docs/controllers.md)
 - [Rendering Views `app/controllers`](#) *soon*
 - [Creating Models `app/models`](#) *soon*
 - [Database Interactions](#) *soon*
