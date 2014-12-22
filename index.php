@@ -39,6 +39,12 @@
   /* Start a new session */
   session_start();
 
+  /* Check PHP version */
+  if(version_compare(PHP_VERSION, '5.3') < 0) {
+    echo "sloth-php needs PHP 5.3 or higher, you're running" . PHP_VERSION;
+    exit;
+  }
+
 
   /* Actually render page or catch errors */
   try {
