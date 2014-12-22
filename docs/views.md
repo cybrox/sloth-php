@@ -16,3 +16,6 @@ There are multiple ways to render a view from the controller:
 
 ## The registry
 The `Registry` is a buffer sloth-php uses to make templating easy for you. You can load values into the registry inside your controller by using `Registry::set("key", "value");` and output or use them in your template. sloth-php offers you the shortcut method `__` to quickly output Registry elements in your template by simply writing `<?php echo __('key'); ?>`
+
+## Autoloading scripts and styles
+You can automatically generate the embed tags for your scripts and styles in `/public` and `/vendor` by using `<?php Autoloader::load_public(); ?>` or `<?php Autoloader::load_vendor(); ?>` in your header template.

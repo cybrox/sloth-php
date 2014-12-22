@@ -13,6 +13,8 @@ Basically, MVC concepts are great to keep your application tidy in large scale. 
 │   └───config.php
 ├───core
 └───docs
+├───public
+├───vendor
 └───index.php
 ```
 
@@ -24,6 +26,8 @@ Basically, MVC concepts are great to keep your application tidy in large scale. 
  - `config.php` Holds your app's global config
 - `core` - The sloth-php framework core
 - `docs` - The sloth-php documentation files
+- `public` - Your css and js files
+- `vendor` - Third-party css and js files
 - `index.php` - Framework entrance point
 
 
