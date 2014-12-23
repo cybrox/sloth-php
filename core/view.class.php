@@ -64,7 +64,7 @@
      * @param string $name - Name of the respective view
      */
     private static function get_path($name){
-      return 'app/views/'.$name.'.php';
+      return APPDIR.'/views/'.$name.'.php';
     }
 
 
