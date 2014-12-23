@@ -46,7 +46,7 @@ The framework has been built in mere three days and it sure is far from being pe
  -  [x] Database connectors and handlers
  -  [x] Query builder
  -  [x] App model system to access from controllers
--  [ ] Error handling
+-  [x] Error handling
  -  [x] Catch errors and route to a custom error handling
  -  [x] Proper default error routes
 - [x] Session handling

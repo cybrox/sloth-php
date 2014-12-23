@@ -1,4 +1,4 @@
-## Concepts of restful routing
+## Concepts of RESTful routing
 sloth-php includes a full restful routing concept that allow you to trigger different actions based on the http request url and request type it is accessed. There are two essential parameters for routing:  
 - The http request type (*verb*)
 - The http request url
