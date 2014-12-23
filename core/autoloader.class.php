@@ -71,8 +71,8 @@
      * Load the app config and router
      */
     public static function load_app(){
-      include URI::$relative.APPDIR.'/router.php';
-      include URI::$relative.APPDIR.'/config.php';
+      include(URI::$relative.APPDIR.'/router.php');
+      include(URI::$relative.APPDIR.'/config.php');
 
       Base::set_config($__sphpconfig);
     }
