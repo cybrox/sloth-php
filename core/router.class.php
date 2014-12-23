@@ -8,6 +8,7 @@
     private static $rtpe;
 
     private static $routes = array();
+    private static $e = false; // Error indicator
 
 
     /**
@@ -109,9 +110,9 @@
 
       if(!$route) Error::throw404();
       else {
-        $route->call_before();
-        $route->call_controller();
-        $route->call_after();
+        if(!self::$e) $route->call_before();
+        if(!self::$e) $route->call_controller();
+        if(!self::$e) $route->call_after();
       }
     }
 
@@ -122,6 +123,14 @@
     public static function redirect($path, $registry = array()){
       Session::set('__regtemp', $registry);
       header("Location: /".Router::$base.self::fix_path(URI::$relative, $path));
+    }
+
+
+    /**
+     * Kill routing, don't load following controller actions
+     */
+    public static function terminate(){
+      self::$e = true;
     }
 
 

@@ -63,3 +63,7 @@ As you can see, the `route_before` and `route_after` hook can either take a *con
 
 ## Redirecting
 You can call `Router::redirect("/path")` to redirect to another path in your application. If you want to pass any values, you can also add an array as second parameter for `Router::redirect`. All keys of that array will be available in the `Registry` on the page you pass it to. You can check for the with `Registry::has("key")`.
+
+
+## Terminating
+You can terminate routing via `Router::terminate()`. If you use the `route_before` hook to authenticate your user before loading a page, and the user is logged in, you can use redirect or terminate to precent them form accessing the protected route
