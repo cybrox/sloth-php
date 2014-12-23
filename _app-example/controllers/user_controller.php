@@ -11,9 +11,23 @@
     // GET "/dashboard"
     public function dashboard(){
       $user = Session::get('user');
+      $page = (Registry::has('page_nr')) ? Registry::get('page_nr') : 1;
+      $perp = 60;
+
+      $start = ($page - 1) * $perp;
+      $end = $page * $perp;
+
       $images = Image::where("user_id", "=", $user->id);
+      $total = $images->count();
+      $images->take($perp)->skip(($page - 1) * $perp);
+
+      if($total < $end) $end = $total;
 
       Registry::set('images', $images->get());
+      Registry::set('prev_page', ($page - 1));
+      Registry::set('next_page', ($page + 1));
+      Registry::set('range', "{$start} - {$end}");
+      Registry::set('total', $total);
 
       View::render('dashboard');
     }
@@ -47,7 +61,7 @@
 
     // Auth verification via session
     public function auth_by_session(){
-      if(Session::get('user') == null)
+      if(!Session::has('user') || Session::get('user') == null)
         Router::redirect('/', array("login_needed" => true));
     }
 
