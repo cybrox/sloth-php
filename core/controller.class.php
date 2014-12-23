@@ -9,7 +9,9 @@
      * Check if the given controller exists and return it if possible
      */
     public static function get_controller($controller){
-      require_once URI::$relative.'app/controllers/'.$controller.'_controller.php';
+      if(!@include(URI::$relative.'app/controllers/'.$controller.'_controller.php'))
+        throw new LazySloth("Trying to load nonexistent controller '".$controller."'");
+      
       $controller = ucfirst($controller).'Controller';
       self::$new_controller = new $controller();
     }
