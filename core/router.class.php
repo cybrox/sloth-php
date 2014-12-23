@@ -148,7 +148,7 @@
      */
     public static function redirect($path, $registry = array()){
       Session::set('__regtemp', $registry);
-      header("Location: /".Router::$base.self::fix_path(URI::$relative, $path));
+      header("Location: /".self::fix_path(self::$base, $path));
     }
 
 
