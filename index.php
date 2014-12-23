@@ -10,10 +10,12 @@
 
   /* Allow user to switch app dir */
   define("APPDIR", "app");
+  define("SUBDIR", "/imagesave");
 
 
   /* Require needed fiels */
   require_once('./core/base.class.php');
+  require_once('./core/router.class.php');
   require_once('./core/uri.class.php');
   require_once('./core/autoloader.class.php');
 

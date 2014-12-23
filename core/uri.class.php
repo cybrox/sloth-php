@@ -9,15 +9,17 @@
     /**
      * This will set up the uri class and get the current
      * uri settings to request other files easier.
+     * @param string $base - Subdirectory base
      */
-    public static function setup_uri(){
-      self::$root = str_replace("index.php", "", $_SERVER['SCRIPT_NAME']);
-      self::$relative = str_replace("index.php", "", $_SERVER['SCRIPT_NAME']);
+    public static function setup_uri($base){
+      self::$root = str_replace("index.php", "", $_SERVER['PHPRC']);
+      self::$root .= substr(str_replace("index.php", "", $_SERVER['SCRIPT_NAME']), 1);
+      self::$root = str_replace($base, "", self::$root);
 
-      $relative_meta = preg_split("/(\.|\/|\\\)/is", self::$relative);
-      self::$relative = $relative_meta[0];
+      $endpost = strpos(self::$root, substr($_SERVER['REQUEST_URI'], 1));
+      $overlap = ($endpost) ? substr(self::$root, $endpost) : "";
 
-      if(substr(self::$relative, -1) != '/') self::$relative .= '/';
+      self::$relative = "./".str_repeat("../", substr_count($overlap, "/"));
     }
 
 

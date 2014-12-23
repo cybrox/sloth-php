@@ -40,7 +40,8 @@
       }
 
       /* URI class setup */
-      URI::setup_uri();
+      URI::setup_uri(SUBDIR);
+      Router::set_base(SUBDIR);
     }
 
   }
