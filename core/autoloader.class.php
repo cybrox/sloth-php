@@ -33,6 +33,9 @@
 
         if(!preg_match("/.*\.(js|css)/is", $file_name)) continue;
 
+        $file = str_replace("./", "", $file);
+        $file = "/".Router::fix_path(Router::b(), $file);
+
         echo (substr($file_name, -3) == 'css') ? '<link rel="stylesheet" href="'.$file.'" />' : 
           '<script type="text/javascript" src="'.$file.'"></script>';
       }

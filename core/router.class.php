@@ -165,7 +165,7 @@
      * @param string $part1 - First part of the string
      * @param string $part2 - Second part of the string
      */
-    private static function fix_path($part1, $part2){
+    public static function fix_path($part1, $part2){
       if(substr($part1, -1) != '/' && substr($part2, 0, 1) != '/')
         return $part1.'/'.$part2;
 
@@ -180,7 +180,7 @@
      * Base shortcut for templating
      */
     public static function b(){
-      echo self::$base;
+      return self::$base;
     }
 
   }
