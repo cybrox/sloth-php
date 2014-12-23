@@ -183,6 +183,15 @@
       return self::$base;
     }
 
+
+    /**
+     * Link helper for templating
+     * @param string $target - The link target
+     */
+    public static function link($target){
+      return "/".self::fix_path(self::$base, $target);
+    }
+
   }
 
 ?>
