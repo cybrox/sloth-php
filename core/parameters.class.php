@@ -28,7 +28,7 @@
      * @param string $key - The key of the parameter
      * @param string $type - The type of the parameter
      */
-    public static function has(){
+    public static function has($key, $type = null){
       if(self::$get_dump == null | self::$post_dump == null)
         self::load_data();
 
