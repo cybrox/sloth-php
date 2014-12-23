@@ -13,7 +13,7 @@
     'framework' => 'sloth-php',
 
     'database' => array(
-      'use_db' => true,
+      'use_db' => false,
       'driver' => 'mysql',
       'hostname' => 'localhost',
       'port' => 3306,
