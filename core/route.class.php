@@ -4,6 +4,8 @@
 
     public $verb;
     public $path;
+    public $pattern;
+    public $namespace;
 
     private $controller;
     private $callmethod;
@@ -24,9 +26,35 @@
       $this->verb = strtolower($verb);
       $this->path = trim(trim($path), " \\/");
 
+      $path_meta = explode("/", $this->path);
+      $this->namespace = trim($path_meta[0], "\/() ");
+
+      $pattern = str_replace(array("/", ")"), array("\/", ")?"), $this->path);
+      $pattern = preg_replace("/\:[A-z0-9]+/i", "[^\/]+", $pattern);
+      $this->pattern = "/^{$pattern}$/i";
+
       $controller_info = explode("#", $controller);
       $this->controller = $controller_info[0];
       $this->callmethod = $controller_info[1];
+    }
+
+
+    /**
+     * Resolve dynamic route parameters from the called path
+     * @param string $path - The requested path
+     */
+    public function resolve_params($path){
+      $path_meta = str_replace(array("(", ")"), array("", ""), $this->path);
+
+      $piece_meta = explode("/", $path_meta);
+      $paths_meta = explode("/", $path);
+
+      foreach($piece_meta as $i => $segment){
+        if(substr($segment, 0, 1) == ":"){
+          if(!empty($paths_meta[$i]))
+            Registry::set(substr($segment, 1), $paths_meta[$i]);
+        }
+      }
     }
 
 

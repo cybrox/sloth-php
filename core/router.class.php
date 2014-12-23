@@ -85,6 +85,32 @@
 
 
     /**
+     * Match a dynamic route
+     * @param string $verb - http request verb
+     * @param string $path - http request path
+     */
+    public static function match_dynamic($verb, $path){
+      if(empty($verb)) $verb = self::$verb;
+      if(empty($path)) $path = self::$path;
+
+      $verb = strtolower($verb);
+      $path = trim(trim($path), " \\/");
+
+      $path_meta = explode("/", $path);
+      $path_test = $path_meta[0];
+
+      foreach (self::$routes as $route){
+        if($route->verb == $verb && $route->namespace == $path_test){
+          if(preg_match($route->pattern, $path)){
+            $route->resolve_params($path);
+            return $route;
+          }
+        }
+      }
+    }
+
+
+    /**
      * This method will be called from the index to actually process the current route
      * @param array $server - Server array
      */
@@ -106,7 +132,7 @@
       }
 
 
-      $route = self::match(self::$verb, self::$path);
+      $route = self::match_dynamic(self::$verb, self::$path);
 
       if(!$route) Error::throw404();
       else {
