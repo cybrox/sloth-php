@@ -97,6 +97,8 @@
       self::$path = $path_meta[0];
 
       BaseController::$request_type = self::$rtpe;
+      foreach(Session::get('__regtemp') as $k => $v)
+        Registry::set($k, $v);
 
       $route = self::match(self::$verb, self::$path);
 
