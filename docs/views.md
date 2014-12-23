@@ -14,6 +14,8 @@ There are multiple ways to render a view from the controller:
  - This will output the given data in json format with the respective header. You can pass either a data array that will be serialized to json data or a json string that will be outputted directly.
 
 
+**Please note:** Each of these three methods also take an optional second parameter. If you set it to true, it will execute `Router::terminate()` after outputting your view/json. This is useful for error handling.
+
 ## The registry
 The `Registry` is a buffer sloth-php uses to make templating easy for you. You can load values into the registry inside your controller by using `Registry::set("key", "value");` and output or use them in your template. sloth-php offers you the shortcut method `__` to quickly output Registry elements in your template by simply writing `<?php echo __('key'); ?>`
 

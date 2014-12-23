@@ -8,6 +8,9 @@
    * by Sven Marc 'cybrox' Gehring
    */
 
+  /* Allow user to switch app dir */
+  define("APPDIR", "app");
+
 
   /* Require needed fiels */
   require_once('./core/Base.class.php');

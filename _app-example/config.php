@@ -13,13 +13,13 @@
     'framework' => 'sloth-php',
 
     'database' => array(
-      'use_db' => false,
+      'use_db' => true,
       'driver' => 'mysql',
       'hostname' => 'localhost',
       'port' => 3306,
       'username' => 'root',
       'password' => '',
-      'database' => 'sloth-php',
+      'database' => 'imagesave',
       'charset' => 'utf8',
       'prefix' => ''
     ),

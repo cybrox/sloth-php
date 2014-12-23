@@ -12,7 +12,7 @@
      */
     public static function setup_uri(){
       self::$root = str_replace("index.php", "", $_SERVER['SCRIPT_NAME']);
-      self::$relative = str_replace(self::$root, "", $_SERVER['REQUEST_URI']);
+      self::$relative = str_replace("index.php", "", $_SERVER['SCRIPT_NAME']);
 
       $relative_meta = preg_split("/(\.|\/|\\\)/is", self::$relative);
       self::$relative = $relative_meta[0];

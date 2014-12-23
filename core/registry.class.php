@@ -24,6 +24,15 @@
       return self::$stack[$name];
     }
 
+
+    /**
+     * Check if registry has a certain key
+     * @param string $name - Name of the property
+     */
+    public static function has($name){
+      return array_key_exists($name, self::$stack);
+    }
+
   }
 
 ?>

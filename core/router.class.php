@@ -8,6 +8,7 @@
     private static $rtpe;
 
     private static $routes = array();
+    private static $e = false; // Error indicator
 
 
     /**
@@ -97,15 +98,55 @@
       self::$path = $path_meta[0];
 
       BaseController::$request_type = self::$rtpe;
+      if(Session::has('__regtemp')){
+        foreach(Session::get('__regtemp') as $k => $v)
+          Registry::set($k, $v);
+
+        Session::drop('__regtemp');
+      }
+
 
       $route = self::match(self::$verb, self::$path);
 
       if(!$route) Error::throw404();
       else {
-        $route->call_before();
-        $route->call_controller();
-        $route->call_after();
+        if(!self::$e) $route->call_before();
+        if(!self::$e) $route->call_controller();
+        if(!self::$e) $route->call_after();
       }
+    }
+
+
+    /**
+     * Redirect to another route
+     */
+    public static function redirect($path, $registry = array()){
+      Session::set('__regtemp', $registry);
+      header("Location: /".Router::$base.self::fix_path(URI::$relative, $path));
+    }
+
+
+    /**
+     * Kill routing, don't load following controller actions
+     */
+    public static function terminate(){
+      self::$e = true;
+    }
+
+
+    /**
+     * Fix the connection between two path segments
+     * @param string $part1 - First part of the string
+     * @param string $part2 - Second part of the string
+     */
+    private static function fix_path($part1, $part2){
+      if(substr($part1, -1) != '/' && substr($part2, 0, 1) != '/')
+        return $part1.'/'.$part2;
+
+      if(strstr($part1.$part2, "//"))
+        return $part1.substr($part2, 1);
+
+      return $part1.$part2;
     }
 
   }

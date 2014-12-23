@@ -24,6 +24,25 @@
     }
 
 
+    /** 
+     * Check if a session variable exists
+     * @param string $key - The session array key
+     */
+    public static function has($key){
+      return array_key_exists($key, $_SESSION);
+    }
+
+
+    /**
+     * Unset a value in the current session
+     * @param string $key - The session array key
+     */
+    public static function drop($key){
+      if(!array_key_exists($key, $_SESSION)) return;
+      unset($_SESSION[$key]);
+    }
+
+
     /**
      * Get a cookie from the user's cookie array
      * @param string $name - Name of the cookie
