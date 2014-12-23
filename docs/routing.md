@@ -59,3 +59,7 @@ Router::route_after("GET", "/", function(){ echo 'bye bye'; });
 ```
 
 As you can see, the `route_before` and `route_after` hook can either take a *controller#method* string like the route itself or an anonymous function (*lambda*) if you just want to do some really basic stuff.
+
+
+## Redirecting
+You can call `Router::redirect("/path")` to redirect to another path in your application. If you want to pass any values, you can also add an array as second parameter for `Router::redirect`. All keys of that array will be available in the `Registry` on the page you pass it to. You can check for the with `Registry::has("key")`.
