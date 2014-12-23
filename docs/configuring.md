@@ -1,6 +1,6 @@
 ## Configuring sloth-php
 Actually, you don't have to configure anything on the framework itself in order for it to run. However, sloth-php offers you an `app/config.php` file that you can use to store global config values.
-If your app is using a database connection, you will have to save its server information in this config as well. ([Read more about this here](#) *soon*)
+If your app is using a database connection, you will have to save its server information in this config as well.
 
 
 ## So, what does this do?

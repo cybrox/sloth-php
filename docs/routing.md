@@ -67,3 +67,17 @@ You can call `Router::redirect("/path")` to redirect to another path in your app
 
 ## Terminating
 You can terminate routing via `Router::terminate()`. If you use the `route_before` hook to authenticate your user before loading a page, and the user is logged in, you can use redirect or terminate to precent them form accessing the protected route
+
+
+## Dynamic hooks
+Something more advanced, you can also create dynamic hooks. Sloth-php uses a really simple syntax for this. Optional parameters are written in brackets `(/page)`, parameter values with a colon `(/:nr)`. This will be clear looking at the following examples:
+- `/home`
+ - Matches `/home`
+- `/home(/page)`
+ - Matches `/home`
+ - Matches `/home/page`
+- `/home(/page)(/:page_nr)`
+ - Matches `/home`
+ - Matches `/home/page`
+ - Matches `/home/page/%value%`
+  - `Registry::get('page_nr')` returns `%value%`
