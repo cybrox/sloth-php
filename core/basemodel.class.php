@@ -39,6 +39,10 @@
         self::$query = null;
         return $x;
       }
+
+      // Get a new query
+      if($name == "query")
+        return self::get_new_model_query();
     }
 
 
@@ -63,6 +67,16 @@
     private static function call_model_method($name, $params){
       if(self::$query == null) self::$query = new Query(self::$table);
       return call_user_func_array(array(self::$query, $name), $params);
+    }
+
+
+    /**
+     * Get a new query for the called module
+     */
+    private static function get_new_model_query(){
+      self::check_model_table();
+      self::$query = new Query(self::$table);
+      return self::$query;
     }
 
   }
