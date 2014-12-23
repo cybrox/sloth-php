@@ -10,10 +10,11 @@
      * Render given json data as json output instead of a view
      * @param mixed $data - json input data
      */
-    public static function render_json($data){
+    public static function render_json($data, $error = false){
       if(is_array($data)) $data = json_encode($data);
       header('Content-Type: application/json');
       echo $data;
+      if($error) Router::terminate();
     }
 
 
@@ -21,10 +22,11 @@
      * Render a view with the given header and footer parts
      * @param string $name - The name of the view to render
      */
-    public static function render($name){
+    public static function render($name, $error = false){
       self::partial(self::$header);
       self::partial($name);
       self::partial(self::$footer);
+      if($error) Router::terminate();
     }
 
 
@@ -32,9 +34,10 @@
      * Render a partial without the header or footer part
      * @param string $name - The name of the partial to render
      */
-    public static function partial($name){
+    public static function partial($name, $error = false){
       self::check_existence($name);
       include self::get_path($name);
+      if($error) Router::terminate();
     }
 
 
