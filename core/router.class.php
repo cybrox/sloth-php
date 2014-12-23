@@ -149,6 +149,14 @@
       return $part1.$part2;
     }
 
+
+    /**
+     * Base shortcut for templating
+     */
+    public static function b(){
+      echo self::$base;
+    }
+
   }
 
 ?>
