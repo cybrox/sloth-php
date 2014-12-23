@@ -49,8 +49,9 @@
       if(self::$no_table)
         throw new LazySloth("Tried to interact with table of model with \$no_table parameter!");
 
-      if(self::$table == null)
-        self::$table = strtolower(get_called_class());
+      $table_meta = strtolower(get_called_class());
+      if($table_meta != self::$table) self::$query = null;
+      self::$table = $table_meta;
     }
 
 
