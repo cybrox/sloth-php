@@ -19,7 +19,7 @@
       'port' => 3306,
       'username' => 'root',
       'password' => '',
-      'database' => 'sloth-php',
+      'database' => 'imagesave',
       'charset' => 'utf8',
       'prefix' => ''
     ),

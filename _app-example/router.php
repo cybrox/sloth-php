@@ -19,6 +19,25 @@
    *
    */
 
-  Router::set_base("/");
+  Router::set_base("git/sloth-php/");
+
+  // User UI routes
+  Router::route("GET", "/", "user#home");
+  Router::route("GET", "/dashboard", "user#dashboard");
+  Router::route("GET", "/user/logout", "user#logout");
+  Router::route("POST", "/user/login", "user#login");
+
+  Router::route_before("GET", "/dashboard", "user#auth_by_session");
+  Router::route_before("GET", "/user/logout", "user#auth_by_session");
+
+
+  // Image API routes
+  Router::route("GET", "/images", "image#list_all");
+  Router::route("POST", "/images/add", "image#add");
+  Router::route("POST", "/images/remove", "image#remove");
+
+  Router::route_before("GET", "/images", "user#auth_by_token");
+  Router::route_before("POST", "images/add", "user#auth_by_token");
+  Router::route_before("POST", "images/remove", "user#auth_by_token");
 
 ?>
