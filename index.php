@@ -13,9 +13,9 @@
 
 
   /* Require needed fiels */
-  require_once('./core/Base.class.php');
-  require_once('./core/URI.class.php');
-  require_once('./core/Autoloader.class.php');
+  require_once('./core/base.class.php');
+  require_once('./core/uri.class.php');
+  require_once('./core/autoloader.class.php');
 
 
   /* Invoke base boot to get data we need */
