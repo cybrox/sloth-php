@@ -34,7 +34,8 @@
 
     /**
      * The boot function will be called once from the index to
-     * get all the initial stuff done.
+     * get all the initial stuff done. It will output a message
+     * to the user if something internally is not ok.
      */
     public static function boot(){
       session_start();
@@ -48,6 +49,11 @@
       /* URI class setup */
       URI::setup_uri(SUBDIR);
       Router::set_base(SUBDIR);
+
+      /* Check app directory */
+      if(!file_exists(URI::$relative.APPDIR."router.php")){
+        die("Invalid application directory '".APPDIR."', no router found.");
+      }
     }
 
   }
