@@ -17,11 +17,7 @@
      * @param LazySloth $s - The exception object
      */
     public static function shutdown($s){
-      echo '
-        <div style="position:absolute;width:100%;height:60%;padding:20% 0;top:0;left:0;text-align:center;background:#fff;font-family:Arial;">
-          <strong>Error:</strong><br /><br />'. $s->__toString() .'
-        </div>
-      ';
+      die($s->__toString());
     }
 
   }

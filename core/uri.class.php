@@ -12,7 +12,6 @@
      * @param string $base - Subdirectory base
      */
     public static function setup_uri($base){
-      self::$root = str_replace("index.php", "", $_SERVER['PHPRC']);
       self::$root .= substr(str_replace("index.php", "", $_SERVER['SCRIPT_NAME']), 1);
       self::$root = str_replace($base, "", self::$root);
 
