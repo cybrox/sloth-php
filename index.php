@@ -43,9 +43,6 @@
 
   } catch(Exception $e) {
     if(get_class($e) == "LazySloth") Error::shutdown($e);
-    else {
-      $s = new LazySloth($e);
-      Error::shutdown($s);
-    }
+    else Error::shutdown(new LazySloth($e));
   }
 ?>

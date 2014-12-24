@@ -13,6 +13,7 @@
     /**
      * Create a new error object with the given information
      * @param string $message - The error message
+     * @param int $code - The error code
      */
     public function __construct($message, $code = 0) {
       if(is_object($message)){
