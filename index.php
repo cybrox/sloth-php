@@ -9,8 +9,8 @@
    */
 
   /* Allow user to switch app dir */
-  define("APPDIR", "appw");
-  define("SUBDIR", "git/sloth-php");
+  define("APPDIR", "app");
+  define("SUBDIR", "/imagesave");
 
 
   /* Require needed fiels */
