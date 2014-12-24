@@ -13,10 +13,17 @@
     /**
      * Create a new error object with the given information
      * @param string $message - The error message
-     * @param int $code - The error code
      */
     public function __construct($message, $code = 0) {
-      parent::__construct($message, $code);
+      if(is_object($message)){
+        $this->message = $message->getMessage();
+        $this->file = $message->getFile();
+        $this->line = $message->getLine();
+        $this->trace = $message->getTrace();
+      } else {
+        parent::__construct($message, $code);
+        $this->trace = parent::getTrace();
+      }
     }
 
 
@@ -57,7 +64,7 @@
     private function build_stacktrace(){
       $trace_meta = "";
 
-      foreach(parent::getTrace() as $trace){
+      foreach($this->trace as $trace){
         $trace_meta .= $trace['file'].'<br />&nbsp;'.$this->line_number($trace['line']);
         $trace_meta .= '<strong>'.$trace['class'].$trace['type'].$trace['function'].'();';
         $trace_meta .= '</strong><br /><br />';

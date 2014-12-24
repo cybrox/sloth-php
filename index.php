@@ -20,24 +20,32 @@
   require_once('./core/autoloader.class.php');
 
 
-  /* Invoke base boot to get data we need */
-  Base::boot();
-
-
-  /* Register the autloader and load our files */
-  Autoloader::register();
-  Autoloader::load_app();
-  Autoloader::load_dbs();
-
-
-  /* Create function alias for simple templating */
-  function __($name){ echo Registry::get($name); }
-
-
-  /* Actually render page or catch errors */
   try {
+
+
+    /* Invoke base boot to get data we need */
+    Base::boot();
+
+
+    /* Register the autloader and load our files */
+    Autoloader::register();
+    Autoloader::load_app();
+    Autoloader::load_dbs();
+
+
+    /* Create function alias for simple templating */
+    function __($name){ echo Registry::get($name); }
+
+
+    /* Actually render page or catch errors */
     Router::route_process($_SERVER);
-  } catch(LazySloth $s) {
-    Error::shutdown($s);
+
+
+  } catch(Exception $e) {
+    if(get_class($e) == "LazySloth") Error::shutdown($e);
+    else {
+      $s = new LazySloth($e);
+      Error::shutdown($s);
+    }
   }
 ?>
