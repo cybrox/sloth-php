@@ -24,7 +24,6 @@
      * Return the HTML string of this error
      */
     public function __toString() {
-      //return "({$this->code}) {$this->message}<br />{$this->file}";
       return $this->build_template();
     }
 
