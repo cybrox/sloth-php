@@ -32,8 +32,9 @@
     ),
 
 
-    /* Insert custom global values here */
-    /* 'cake' => 'delicious', */
+    
+    // You can add your own global variables here
+    /* 'sloths' => 'awesome', */
 
   );
 
