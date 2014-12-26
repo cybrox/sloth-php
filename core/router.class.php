@@ -6,6 +6,7 @@
     private static $verb;
     private static $path;
     private static $rtpe;
+    private static $count = 0;
 
     private static $routes = array();
     private static $e = false; // Error indicator
@@ -36,6 +37,7 @@
       if($after != null)  $route->append_after($after);
 
       array_push(self::$routes, $route);
+      self::$count++;
     }
 
 
@@ -90,6 +92,9 @@
      * @param string $path - http request path
      */
     public static function match_dynamic($verb, $path){
+      if(self::$count == 0)
+        throw new LazySloth("Cannot resolve path, no routes defined in '".APPDIR."/router.php'");
+      
       if(empty($verb)) $verb = self::$verb;
       if(empty($path)) $path = self::$path;
 
