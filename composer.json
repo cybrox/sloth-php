@@ -1,0 +1,13 @@
+{
+    "name": "cybrox/sloth-php",
+    "description": "A really simple, lightweight, not-so-lame php mvc framework",
+    "license": "CC BY-SA",
+    "authors": [
+        {
+            "name": "Sven Marc cybrox Gehring",
+            "email": "svengehring@cybrox.eu"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
