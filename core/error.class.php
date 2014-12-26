@@ -6,7 +6,12 @@
      * Render the error404 view
      */
     public static function throw404(){
-      View::render('error404');
+      if(Base::config('environment') == 'development'){
+        $s = new LazySloth("The current path did not match any routes.");
+        die($s->__toString());
+      } else {
+        View::render('error404');
+      }
     }
 
 
