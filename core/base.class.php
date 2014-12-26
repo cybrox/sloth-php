@@ -11,6 +11,12 @@
      */
     public static function set_config($config){
       self::$config = $config;
+
+      if(!array_key_exists("database", $config))
+        throw new LazySloth("Missing config value database([Array])");
+
+      if(!array_key_exists("environment", $config))
+        throw new LazySloth("Missing config value environment([String])");
     }
 
 

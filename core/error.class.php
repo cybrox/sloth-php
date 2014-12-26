@@ -17,7 +17,11 @@
      * @param LazySloth $s - The exception object
      */
     public static function shutdown($s){
-      die($s->__toString());
+      if(Base::config('environment') == 'development'){
+        die($s->__toString());
+      } else {
+        die("An internal error occured, please contact an administrator.");
+      }
     }
 
   }

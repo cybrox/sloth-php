@@ -10,8 +10,15 @@
 
   $__sphpconfig = array(
 
-    'framework' => 'sloth-php',
+    // The environment settings determine the level of error reporting of
+    // your application. You can set this to:
+    // - production (live version, only show minimal error info)
+    // - development (dev version, shows full php errors and trace)
+    'environment' => 'development',
 
+    // The database configuration allows you to connect your application
+    // to a MySQL database. To prevent errors if you're not using the
+    // database, set `use_db` to false.
     'database' => array(
       'use_db' => false,
       'driver' => 'mysql',
