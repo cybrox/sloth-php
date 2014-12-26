@@ -74,7 +74,7 @@
      */
     private static function check_existence($name){
       if(!file_exists(self::get_path($name)))
-        throw new LazySloth("Tried to render inexistend partial '{$name}'");
+        throw new LazySloth("Tried to render nonexistent partial '{$name}'");
     }
 
 
